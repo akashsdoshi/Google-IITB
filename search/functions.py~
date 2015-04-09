@@ -71,12 +71,10 @@ def spellCheck(word):
 		for entry in suggest:
 			hashkey = hashFunc(entry)
 			secKey = findinKeyTable(entry, keyweights)
-			if secKey != False:
-				if keyweights[hashkey][secKey][0] >= bestweight:
-					bestword = keyweights[hashkey][secKey][1]
-					bestweight = keyweights[hashkey][secKey][0]
-			return bestword
-		return False
+			if keyweights[hashkey][secKey][0] >= bestweight:
+				bestword = keyweights[hashkey][secKey][1]
+				bestweight = keyweights[hashkey][secKey][0]
+		return bestword
 		
 
 def ngrams(word):
