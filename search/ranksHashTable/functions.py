@@ -98,21 +98,13 @@ def Query(entry):
 	searchlist = []
 	for i in range(len(words)):
 		searchlist = searchlist + ngrams(words[i].lower())
-	#print searchlist
+	print searchlist
 	return searchlist
 	
 	
-def Sort(listOfUrls):
+def Sort(ranks, listOfUrls):
 	#f = open(file_name, "r")	#pageranks file
 	#ranks = f.readlines()
-	with open("pageranks.p","rb") as fp:
-		table = pickle.load(fp)
-	ranks = []
-	for url in listOfUrls:
-		hashkey = hashFunc(url)
-		for i in range(len(table[hashkey])):
-			if table[hashkey][i][0] == url:
-				ranks.append(table[hashkey][i][1])
 	for i in range(1,len(listOfUrls)):
 		if ranks[i] > ranks[i-1]:
 			swap(listOfUrls, i, i-1)
@@ -149,7 +141,7 @@ def numberOfMatches(url, result):
 	return Count
 
 
-def Search(searchlist, file_name, hash_table):
+def Search(searchlist, file_name, ranks, hash_table):
 	result = []
 	for i in range(len(searchlist)):
 		key = hashFunc(searchlist[i])
@@ -165,12 +157,12 @@ def Search(searchlist, file_name, hash_table):
 	#before sorting, first sort according to no. of matches
 	for link in result:
 		matches.append(numberOfMatches(link, result))
-	result = Sort(result)
+	result = Sort(ranks, result)
 	result = primarySort(result, matches)
 	return result
 		
 def SearchFinal(entry, hash_table):
 	#getCode()
 	#ranks = getRanks(code)
-	return Search(Query(entry), "NGramkeys.txt", hash_table) 
+	return Search(Query(entry), "NGramkeys.txt", ranks, hash_table) 
 
