@@ -146,7 +146,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                             node* f2 = finding(buf,hash_title);
                             if((ck.compare(buf) == 0 || (f1 != 0||f2 != 0)))
                             t_check.push_back(buf);
-                            else if(ck.compare(" ")!= 0)
+                            else if(ck.compare("")!= 0)
                             {
                                 t_check.push_back(ck);
                                 ck1 = false;
@@ -160,8 +160,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                         {
                             changedWord = changedWord.append(t_check[i].append(" "));
                         }
-                        QueryAlt = CreateWindowEx(NULL,"STATIC"," Do you want to search for ",WS_CHILD | WS_VISIBLE,400,130,150,30,hwnd,NULL,NULL,NULL);
-                        QueryWord = CreateWindowEx(NULL,"STATIC",changedWord.c_str(),WS_CHILD | WS_VISIBLE,550,130,200,30,hwnd,(HMENU) alter,NULL,NULL);
+                        QueryAlt = CreateWindowEx(NULL,"STATIC"," Do you want to search for ",WS_CHILD | WS_VISIBLE,350,130,180,30,hwnd,NULL,NULL,NULL);
+                        QueryWord = CreateWindowEx(NULL,"STATIC",changedWord.c_str(),WS_CHILD | WS_VISIBLE,530,130,200,30,hwnd,(HMENU) alter,NULL,NULL);
                         QueryAnsY = CreateWindowEx(NULL,"BUTTON","Yes",BS_DEFPUSHBUTTON | WS_CHILD | WS_BORDER | WS_VISIBLE,500,170,35,30,hwnd,(HMENU) AY,NULL,NULL);
                         QueryAnsN = CreateWindowEx(NULL,"BUTTON","No",BS_DEFPUSHBUTTON | WS_CHILD | WS_BORDER | WS_VISIBLE,545,170,35,30,hwnd,(HMENU) AN,NULL,NULL);
                     }
@@ -191,7 +191,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                     string changedWord;
                     for(int i=0; i<tokens.size(); i++)
                     {
-                        changedWord = changedWord.append(tokens[i].append(" "));
+                        changedWord = changedWord.append(tokens[i]);
                     }
                     for(int i = 0,j = 0;i < changedWord.length();i++,j++)
                     {
@@ -199,11 +199,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                         i--;
                         else if(tmp_search[j] != changedWord[i])
                         {
-                            stringstream tm;
-                            tm << changedWord[i];
-                            string tm1;
-                            tm >> tm1;
-                            tmp_search.replace(j,1,tm1);
+                            if(tmp_search[i] != ' ')
+                            {
+                                stringstream tm;
+                                tm << changedWord[i];
+                                string tm1;
+                                tm >> tm1;
+                                tmp_search.replace(j,1,tm1);
+                            }
+                            else
+                            i--;
                         }
                     }
                     changedWord = tmp_search;
@@ -400,7 +405,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         WS_EX_CLIENTEDGE,                               // extended window style
         g_szClassName,                                  // class name
         "Google @ IITB",                                // window title
-        WS_OVERLAPPEDWINDOW | WS_HSCROLL | WS_VSCROLL,  // window styles
+        WS_OVERLAPPEDWINDOW,  // window styles
         0,0, 1080, 720,         // position and dimensions of window
         NULL, NULL, hInstance, NULL);                   // other parameters
 
