@@ -34,7 +34,7 @@ string checker(string word)
                  return tmp;
              }
          }
-         return " ";
+         return "";
      }
      else
      return word;
