@@ -1,7 +1,0 @@
-from functions import hashTable
-from functions import uploadToCloud
-
-hashTable("NGramkeys.txt")
-
-uploadhashTableToCloud()	#also upload to dropbox
-
