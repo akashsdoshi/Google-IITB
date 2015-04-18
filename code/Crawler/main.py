@@ -2,7 +2,7 @@ import urllib
 from bs4 import BeautifulSoup
 from spiderLinks import spider_links
 from spiderLinks import Find
-from findAllTitles import FindText
+#from findAllTitles import FindText
 
 links = []
 
