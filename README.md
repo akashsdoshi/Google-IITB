@@ -1,4 +1,4 @@
-# Google-IITB
+Google-IITB
 CS101 Project at IITB
 
 Search Engine to search IITB domain.
