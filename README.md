@@ -1,4 +1,4 @@
-Google-IITB
+Google@IITB
 
 CS101 Project
 
