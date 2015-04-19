@@ -25,7 +25,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         {
             // for loading background
             LoadMyImage();
-            hsti = CreateWindowW(L"static",L"",WS_CHILD | WS_VISIBLE | SS_BITMAP,5, 5, 1080, 720,hwnd, (HMENU) 1, NULL, NULL);
+            hsti = CreateWindowW(L"static",L"",WS_CHILD | WS_VISIBLE | SS_BITMAP,0, 0, 1080, 720,hwnd, (HMENU) 1, NULL, NULL);
             SendMessage(hsti, STM_SETIMAGE,(WPARAM) IMAGE_BITMAP, (LPARAM) hBitmap);
             // creating title box
             Title = CreateWindowEx(NULL,"STATIC","Google @ IITB At Your Service",WS_CHILD | WS_VISIBLE,440,10,200,30,hwnd,NULL,NULL,NULL);
@@ -50,7 +50,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
                     if(cnt != 0 || non_ex == 1)
                     {
                         cleaning(hwnd,non_ex);
-                        hsti = CreateWindowW(L"static",L"",WS_CHILD | WS_VISIBLE | SS_BITMAP,5, 5, 1080, 720,hwnd, (HMENU) 1, NULL, NULL);
+                        hsti = CreateWindowW(L"static",L"",WS_CHILD | WS_VISIBLE | SS_BITMAP,0, 0, 1080, 720,hwnd, (HMENU) 1, NULL, NULL);
                         SendMessage(hsti, STM_SETIMAGE,(WPARAM) IMAGE_BITMAP, (LPARAM) hBitmap);
                     }
                     else
