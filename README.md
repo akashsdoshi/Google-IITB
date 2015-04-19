@@ -1,5 +1,6 @@
 Google-IITB
-CS101 Project at IITB
+
+CS101 Project
 
 Search Engine to search IITB domain.
 Download the code folder. Run the main.cpp file in any IDE supporting C++.
