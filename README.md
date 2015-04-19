@@ -1,10 +1,13 @@
-Google@IITB
-
-CS101 Project
-
-Search Engine to search IITB domain.
-Download the code folder. Run the main.cpp file in any IDE supporting C++.
-Page Ranks and list of websites are already provided.
-To create them yourself, you will need to run the setup.py file in code folder in a linux environment, to install the webcrawler.
-After which, you can follow the readme files in the first three folders within the code folder to run the Python code.
-Please Note that to run the C++ script, a Windows environment is required along with the text files provided.
+Year: 2015
+Course: CS101
+Group number: 454
+Project Title: Google@IITB
+Member1 Name: Akash S. Doshi
+Member1 Roll Number: 140010008
+Member2 Name: Ch. Jyothi Durga Prasad
+Member2 Roll Number: 140010042
+Member3 Name: Aditya Bhosale
+Member3 Roll Number: 140010009
+Member4 Name: Mainak Majumdar
+Member4 Roll Number: 14D110022
+YouTube Video Link: https://youtu.be/zgbtK53-cOQ
